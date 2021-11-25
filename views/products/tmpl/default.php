@@ -10,7 +10,6 @@
 // No direct access to this file
 defined('_JEXEC') or die('Restricted Access');
 session_start();
-//$_SESSION['shoping_cart'] = null;
 ?>
 <form action="" method="post" id="adminForm" name="adminForm">
     <input value="Go to shopping cart" name="shopping_cart" type="submit">
@@ -18,15 +17,17 @@ session_start();
 <?php
 if(isset($_POST['shopping_cart']))
 {
-    echo $this->loadTemplate('cart');
+    header("Location: http://localhost/joomla_3/Twins/index.php/order"); 
 }
-
 ?>
 <form action="index.php?option=com_engine&view=products" method="post" id="adminForm" name="adminForm">
 	<table class="table table-striped table-hover">
                         <th width="10%">
 				<?php echo JText::_('name') ;?>
 			</th>
+                        <th width="10%">
+				<?php echo JText::_('price') ;?>
+                        </th>
                         <th width="10%">
 				<?php echo JText::_('description') ;?>
                         </th>
@@ -53,6 +54,9 @@ if(isset($_POST['shopping_cart']))
                                                     </a>
 						</td>
                                                 <td>
+						<?php echo $row->price; ?>
+						</td>
+                                                <td>
 						<?php echo $row->description; ?>
 						</td>
                                                 <td>
@@ -64,3 +68,4 @@ if(isset($_POST['shopping_cart']))
 		</tbody>
 	</table>
 </form>
+

@@ -9,8 +9,6 @@
 
 // No direct access to this file
 defined('_JEXEC') or die('Restricted Access');
-var_dump($_SESSION['shopping_cart']);
-
 
 ?>
 <form action="index.php?option=com_engine&view=companies" method="post" id="adminForm" name="adminForm">
