@@ -2,14 +2,24 @@
     <div class="row">
         <div class="col-md-12">
             <div class="panel panel-default">
-                <form action="<?php echo JUri::base(); ?>index.php?option=com_engine" method="post" name="adminForm" id="form-validate" class="form-validate form-contact contact-form">
+                <form action="<?php echo JUri::base(); ?>index.php/order" method="post" name="adminForm" id="form-validate" class="form-validate form-contact contact-form">
                     <div class="panel-heading"><?php echo JText::_('COM_ENGINE_ORDER_FORM'); ?></div>
                     <div class="panel-body">
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
+                                    <?php $element = new SimpleXMLElement
+                                            ('<field
+                                            name="product_id"
+                                            type="text"
+                                            label="product_id"
+                                            required="true"
+                                            value="1"
+                                            />');
+                                          $this->form->setField($element);?>
                                     <?php echo $this->form->getLabel('product_id'); ?>
                                     <?php echo $this->form->getInput('product_id'); ?>
+                                    <?php echo $this->form->getAttribute('name'); ?>
                                 </div>
                             </div>
                             <div class="col-md-6">
@@ -90,7 +100,7 @@
                             </div>
                         </div>
                         
-                        <button class="btn btn-success"><?php echo JText::_('COM_ENGINE_SENT'); ?></button>
+                        <button class="btn btn-success"><?php echo JText::_('Order'); ?></button>
                         <div>
                             <input type="hidden" name="task" id="task" value="orders.save" />
                             <?php echo $this->form->getInput('id'); ?>

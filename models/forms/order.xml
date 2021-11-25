@@ -6,11 +6,13 @@
             type="text"
             label="id"
             />
-    <field
+<!--    <field
             name="product_id"
             type="text"
             label="product_id"
-            />
+            required="true"
+            value="1"
+            />-->
     <field
             name="user_id"
             type="textarea"
